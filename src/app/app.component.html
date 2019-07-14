@@ -1,21 +1,86 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<nav class="nav">
+    <p>Welcome to Quiz.</p>
+    <p class="navbar-nav ml-auto">Time: 5 mins</p>
+  </nav>
+<br/>
 
-<router-outlet></router-outlet>
+  <button  (click)="quiz()"  class="btn btn-outline-success" onClick = "this.style.visibility= 'hidden';"  style="margin-left: 50%;display: flex;" >Start Quiz! </button>
+  <br/>
+  <div class="bg-image"> 
+  
+<div id="box">
+
+
+    <div class="alert alert-danger" role="alert " >
+        <h4>Question1.{{questions[0].question}}</h4>
+  <hr>
+   <input type="radio" id="choice1" name="ans1"  value="A" (click)="Q1A1()" >{{questions[0].answers[0].text}} <br/>
+ <input type="radio" id="choice2" name="ans1"  value="B"  (click)="Q1A2()" >{{questions[0].answers[1].text}}  <br/>
+   <input type="radio" id="choice3"  name="ans1" value="C"  (click)="Q1A3()" >{{questions[0].answers[2].text}}  <br/>
+   <input type="radio" id="choice4" name="ans1" value="D"  (click)="Q1A4()" >{{questions[0].answers[3].text}}<br/>
+  <hr>
+  <input type="button" class="btn btn-outline-secondary" (click)="ans1()" value="Submit">
+  <br/>
+  {{clickMessage1}}
+   </div>
+
+
+
+  
+   
+   <div class="alert alert-primary"  role="alert">
+      <h4>Question2.{{questions[1].question}}</h4>
+<hr>
+ <input type="radio" id="choice1" name="ans2"  value="A" (click)="Q2A1()">{{questions[1].answers[0].text}} <br/>
+<input type="radio" id="choice2" name="ans2"  value="B"  (click)="Q2A2()">{{questions[1].answers[1].text}}  <br/>
+ <input type="radio" id="choice3"  name="ans2" value="C" (click)="Q2A3()">{{questions[1].answers[2].text}}  <br/>
+ <input type="radio" id="choice4" name="ans2" value="D"  (click)="Q2A4()">{{questions[1].answers[3].text}}<br/>
+<hr>
+<input type="button" class="btn btn-outline-secondary" (click)="ans2()" value="Submit">
+<br/>
+{{clickMessage2}}
+ </div>
+
+ 
+
+
+
+   
+ <div class="alert alert-warning" role="alert">
+  <h4>Question3.{{questions[2].question}}</h4>
+  <hr>
+  <input type="radio" id="q4_1" name=ans3 value="A" (click)="Q3A1()">{{questions[2].answers[0].text}}<br/>
+  <input type="radio" id="q4_2" name=ans3 value="B" (click)="Q3A2()">{{questions[2].answers[1].text}}<br/>
+  <input type="radio"id="q4_3" name=ans3 value="C" (click)="Q3A3()">{{questions[2].answers[2].text}}<br/>
+  <input type="radio" id="q4_1" name=ans3 value="D" (click)="Q3A4()">{{questions[2].answers[3].text}}<br/>
+  <hr>
+  <input type="button" class="btn btn-outline-secondary"  id="btn4" (click)="ans3()" value="Submit">
+  <br/>
+  {{clickMessage3}}
+ </div>
+
+
+
+
+ <div class="alert alert-info" role="alert">
+<h4>Question4.{{questions[3].question}}</h4>
+<hr>
+<input type="radio" id="choice1" name="ans4" value="A"  (click)="Q4A1()">{{questions[3].answers[0].text}} <br/>
+<input type="radio" id="choice2" name="ans4"  value="B"  (click)="Q4A2()">{{questions[3].answers[1].text}}  <br/>
+<input type="radio" id="choice3"  name="ans4" value="C"  (click)="Q4A3()" >{{questions[3].answers[2].text}}  <br/>
+<input type="radio" id="choice4" name="ans4" value="D"  (click)="Q4A4()">{{questions[3].answers[3].text}}<br/>
+<hr>
+<input type="button" class="btn btn-outline-secondary" (click)="ans4()" value="Submit">
+<br/>
+  {{clickMessage4}}
+</div>
+
+<br/>
+<a class="btn btn-outline-success" style="margin-left: 50%;" (click)="finish()"  >Finish</a>
+
+
+</div>
+</div>
+
+
+
