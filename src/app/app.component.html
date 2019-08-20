@@ -1,86 +1,69 @@
-<nav class="nav">
-    <p>Welcome to Quiz.</p>
-    <p class="navbar-nav ml-auto">Time: 5 mins</p>
-  </nav>
+<div class="pos-f-t">
+   <div class="collapse" id="navbarToggleExternalContent">
+     <div class="bg-dark p-4">
+       <h5 class="text-white h4">UI/UX QUIZ</h5>
+       <span class="text-white ">Angular | JavaScript| HTML | CSS</span>
+       
+     </div>
+   </div>
+   <nav class="navbar navbar-dark bg-dark">
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+   </nav>
+ </div>
+
 <br/>
 
-  <button  (click)="quiz()"  class="btn btn-outline-success" onClick = "this.style.visibility= 'hidden';"  style="margin-left: 50%;display: flex;" >Start Quiz! </button>
-  <br/>
-  <div class="bg-image"> 
-  
-<div id="box">
+<div class="container">
+<div *ngFor="let data of questions;let i = index" >  
+   <h4>Question {{i+1}} .{{data.question}} </h4>
 
-
-    <div class="alert alert-danger" role="alert " >
-        <h4>Question1.{{questions[0].question}}</h4>
-  <hr>
-   <input type="radio" id="choice1" name="ans1"  value="A" (click)="Q1A1()" >{{questions[0].answers[0].text}} <br/>
- <input type="radio" id="choice2" name="ans1"  value="B"  (click)="Q1A2()" >{{questions[0].answers[1].text}}  <br/>
-   <input type="radio" id="choice3"  name="ans1" value="C"  (click)="Q1A3()" >{{questions[0].answers[2].text}}  <br/>
-   <input type="radio" id="choice4" name="ans1" value="D"  (click)="Q1A4()" >{{questions[0].answers[3].text}}<br/>
-  <hr>
-  <input type="button" class="btn btn-outline-secondary" (click)="ans1()" value="Submit">
-  <br/>
-  {{clickMessage1}}
-   </div>
-
-
-
+  <select #ans (change)="setdata(ans.value)" class="select" > 
   
    
-   <div class="alert alert-primary"  role="alert">
-      <h4>Question2.{{questions[1].question}}</h4>
-<hr>
- <input type="radio" id="choice1" name="ans2"  value="A" (click)="Q2A1()">{{questions[1].answers[0].text}} <br/>
-<input type="radio" id="choice2" name="ans2"  value="B"  (click)="Q2A2()">{{questions[1].answers[1].text}}  <br/>
- <input type="radio" id="choice3"  name="ans2" value="C" (click)="Q2A3()">{{questions[1].answers[2].text}}  <br/>
- <input type="radio" id="choice4" name="ans2" value="D"  (click)="Q2A4()">{{questions[1].answers[3].text}}<br/>
-<hr>
-<input type="button" class="btn btn-outline-secondary" (click)="ans2()" value="Submit">
+    <option default="none" *ngFor="let options of data.answers;let i = index" >
+   
+    {{options.text}}  
+
+   </option>
+    </select> <br/> <br/>
+   
+   
+ 
+<p style="color:blue"><strong>{{"Selected value:"+ ans.value}} </strong> </p> <br/>
+
+<button (click)=correctans()  class="btn btn-dark"  style="border-radius:40px"  this.disabled = true;> Submit</button>  <br/> <br/>
+
+<hr class=new style="border: 5px solid white;">
+
+
+
+</div>
+
 <br/>
-{{clickMessage2}}
- </div>
+
+<button  (click)="result()" class="btn btn-lg btn-danger">Submit</button>
+
+</div>
 
  
 
 
 
-   
- <div class="alert alert-warning" role="alert">
-  <h4>Question3.{{questions[2].question}}</h4>
-  <hr>
-  <input type="radio" id="q4_1" name=ans3 value="A" (click)="Q3A1()">{{questions[2].answers[0].text}}<br/>
-  <input type="radio" id="q4_2" name=ans3 value="B" (click)="Q3A2()">{{questions[2].answers[1].text}}<br/>
-  <input type="radio"id="q4_3" name=ans3 value="C" (click)="Q3A3()">{{questions[2].answers[2].text}}<br/>
-  <input type="radio" id="q4_1" name=ans3 value="D" (click)="Q3A4()">{{questions[2].answers[3].text}}<br/>
-  <hr>
-  <input type="button" class="btn btn-outline-secondary"  id="btn4" (click)="ans3()" value="Submit">
-  <br/>
-  {{clickMessage3}}
- </div>
+
+ 
 
 
-
-
- <div class="alert alert-info" role="alert">
-<h4>Question4.{{questions[3].question}}</h4>
-<hr>
-<input type="radio" id="choice1" name="ans4" value="A"  (click)="Q4A1()">{{questions[3].answers[0].text}} <br/>
-<input type="radio" id="choice2" name="ans4"  value="B"  (click)="Q4A2()">{{questions[3].answers[1].text}}  <br/>
-<input type="radio" id="choice3"  name="ans4" value="C"  (click)="Q4A3()" >{{questions[3].answers[2].text}}  <br/>
-<input type="radio" id="choice4" name="ans4" value="D"  (click)="Q4A4()">{{questions[3].answers[3].text}}<br/>
-<hr>
-<input type="button" class="btn btn-outline-secondary" (click)="ans4()" value="Submit">
-<br/>
-  {{clickMessage4}}
-</div>
-
-<br/>
-<a class="btn btn-outline-success" style="margin-left: 50%;" (click)="finish()"  >Finish</a>
-
-
-</div>
-</div>
-
-
-
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
